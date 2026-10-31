@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypeBud — Practice. Improve. Type Faster.</title>
+  <meta name="description" content="TypeBud is a modern, sleek typing practice game and beginner typing tutor to boost your typing speed, accuracy, and consistency. Support for PDF templates, touch typing lessons, hands diagram, and timer pause.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand-group">
+        <div class="logo">
+          <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="url(#logo-grad)"/>
+            <path d="M7 11C7 9.89543 7.89543 9 9 9H23C24.1046 9 25 9.89543 25 11V21C25 22.1046 24.1046 23 23 23H9C7.89543 23 7 22.1046 7 21V11Z" stroke="#F8FAFC" stroke-width="1.8"/>
+            <path d="M12 14L14 17L12 20" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="16" y1="20" x2="20" y2="20" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0F172A"/>
+                <stop offset="1" stop-color="#1E293B"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="brand-text">
+            <h1 class="brand-title">TypeBud</h1>
+            <p class="tagline">Practice. Improve. Type Faster.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Beginner Tutor Toggle Button -->
+        <button id="tutorHeaderBtn" class="pill-btn tutor-action-btn" aria-label="Beginner Typing Academy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+          <span>Beginner Tutor</span>
+        </button>
+
+        <!-- Custom / PDF Template Button -->
+        <button id="pdfTemplateBtn" class="pill-btn template-action-btn" aria-label="Custom or PDF Template">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>PDF / Custom</span>
+        </button>
+
+        <!-- Sound Toggle -->
+        <button id="soundToggle" class="icon-btn" title="Toggle Sound (Alt + M)" aria-label="Toggle Sound">
+          <svg class="sound-on-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <svg class="sound-off-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+
+        <!-- Personal Records -->
+        <button id="recordsBtn" class="pill-btn records-btn" aria-label="View Personal Records">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+            <path d="M4 22h16"></path>
+            <path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34"></path>
+            <path d="M18 4H6v7a6 6 0 0 0 12 0V4Z"></path>
+          </svg>
+          <span>Records</span>
+        </button>
+
+        <!-- About & Creator -->
+        <button id="aboutBtn" class="icon-btn" title="About & Creator" aria-label="About Creator">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+
+        <!-- Shortcuts -->
+        <button id="shortcutsBtn" class="icon-btn" title="Keyboard Shortcuts" aria-label="Shortcuts">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <line x1="6" y1="8" x2="6" y2="8"></line>
+            <line x1="10" y1="8" x2="10" y2="8"></line>
+            <line x1="14" y1="8" x2="14" y2="8"></line>
+            <line x1="18" y1="8" x2="18" y2="8"></line>
+            <line x1="6" y1="12" x2="6" y2="12"></line>
+            <line x1="10" y1="12" x2="10" y2="12"></line>
+            <line x1="14" y1="12" x2="14" y2="12"></line>
+            <line x1="18" y1="12" x2="18" y2="12"></line>
+            <line x1="7" y1="16" x2="17" y2="16"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Game Section -->
+    <main class="game-container">
+      <!-- Settings Bar -->
+      <section class="settings-bar" aria-label="Game Configuration">
+        <div class="setting-group" role="group" aria-label="Difficulty">
+          <span class="setting-label">Mode:</span>
+          <div class="pill-group" id="difficultyGroup">
+            <button class="mode-pill beginner-pill" data-difficulty="beginner" id="beginnerModePill">🎓 Beginner Tutor</button>
+            <button class="mode-pill" data-difficulty="easy">Easy</button>
+            <button class="mode-pill active" data-difficulty="medium">Medium</button>
+            <button class="mode-pill" data-difficulty="hard">Hard</button>
+            <button class="mode-pill custom-pill" data-difficulty="custom" id="customModePill">📄 Custom</button>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="setting-group" role="group" aria-label="Time Mode">
+          <span class="setting-label">Duration:</span>
+          <div class="pill-group pill-group-wrap" id="timeGroup">
+            <button class="mode-pill active" data-time="60">1m</button>
+            <button class="mode-pill" data-time="180">3m</button>
+            <button class="mode-pill" data-time="300">5m</button>
+            <button class="mode-pill" data-time="600">10m</button>
+            <button class="mode-pill" data-time="900">15m</button>
+            <button class="mode-pill" data-time="1200">20m</button>
+            <button class="mode-pill" data-time="1500">25m</button>
+            <button class="mode-pill" data-time="1800">30m</button>
+            <button class="mode-pill" data-time="2100">35m</button>
+            <button class="mode-pill" data-time="2400">40m</button>
+            <button class="mode-pill" data-time="2700">45m</button>
+            <button class="mode-pill" data-time="3000">50m</button>
+            <button class="mode-pill" data-time="3300">55m</button>
+            <button class="mode-pill" data-time="3600">60m</button>
+            <button class="mode-pill" data-time="0" title="Untimed: Type until the document is complete">♾️ Untimed</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Beginner Lesson Header (Visible in Beginner Mode) -->
+      <section class="beginner-tutor-panel hidden" id="beginnerPanel">
+        <div class="tutor-header-row">
+          <div class="lesson-navigation">
+            <button class="lesson-nav-btn" id="prevLessonBtn" title="Previous Lesson">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <div class="lesson-title-box">
+              <span class="lesson-badge" id="lessonStepBadge">Lesson 1 of 10</span>
+              <h3 class="lesson-heading" id="lessonTitle">Home Row Anchors (F & J)</h3>
+            </div>
+            <button class="lesson-nav-btn" id="nextLessonBtn" title="Next Lesson">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Lesson Quick Dropdown -->
+          <div class="lesson-select-wrapper">
+            <select id="lessonSelect" class="lesson-dropdown" aria-label="Select Typing Lesson">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+        </div>
+
+        <div class="lesson-instruction-box">
+          <div class="instruction-icon">💡</div>
+          <p class="instruction-text" id="lessonInstruction">
+            Place your left index finger on <strong>F</strong> and your right index finger on <strong>J</strong>. Feel the small tactile bump on each key! Look at the hands flanking the keyboard to see the highlighted glowing finger.
+          </p>
+        </div>
+
+        <!-- Live Finger Placement Guide Callout -->
+        <div class="finger-guidance-bar" id="fingerGuidanceBar">
+          <div class="target-key-preview">
+            <span class="target-label">Current Key:</span>
+            <span class="target-key-badge" id="hudTargetKey">F</span>
+          </div>
+          <div class="target-finger-preview">
+            <span class="target-label">Use Finger:</span>
+            <span class="target-finger-badge" id="hudTargetFinger">Left Index Finger</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live Stats HUD -->
+      <section class="live-hud" aria-label="Live Statistics">
+        <div class="hud-item timer-item">
+          <div class="timer-visual-wrap">
+            <svg class="timer-ring-svg" viewBox="0 0 44 44">
+              <circle class="timer-ring-bg" cx="22" cy="22" r="18" />
+              <circle class="timer-ring-progress" id="timerProgressRing" cx="22" cy="22" r="18" />
+            </svg>
+            <div class="timer-value-wrap">
+              <span class="hud-value timer-display" id="hudTimer">30</span>
+              <span class="hud-unit" id="hudTimerUnit">s</span>
+            </div>
+          </div>
+          <div class="timer-sub-row">
+            <span class="hud-title" id="hudTimerLabel">Time Left</span>
+            <!-- Pause / Resume Timer Button -->
+            <button id="pauseTimerBtn" class="timer-control-btn" title="Pause/Resume (Alt + Space)" aria-label="Pause timer">
+              <svg class="pause-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+              </svg>
+              <svg class="play-icon hidden" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span class="pause-btn-text" id="pauseBtnLabel">Pause</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="hud-item">
+          <div class="hud-value-row">
+            <span class="hud-value" id="hudWpm">0</span>
+          </div>
+          <span class="hud-title">Live WPM</span>
+        </div>
+
+        <div class="hud-item">
+          <div class="hud-value-row">
+            <span class="hud-value" id="hudAccuracy">100</span>
+            <span class="hud-unit">%</span>
+          </div>
+          <span class="hud-title">Accuracy</span>
+        </div>
+
+        <div class="hud-item hud-chars">
+          <div class="char-counts-row">
+            <span class="char-stat correct-stat" title="Correct Characters" id="hudCorrect">0</span>
+            <span class="char-stat-divider">/</span>
+            <span class="char-stat incorrect-stat" title="Incorrect Characters" id="hudIncorrect">0</span>
+          </div>
+          <span class="hud-title">Correct / Wrong</span>
+        </div>
+      </section>
+
+      <!-- Typing Arena -->
+      <section class="arena-card" id="arenaCard">
+        <!-- Visual Timer Progress Bar -->
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="timerProgressBar"></div>
+        </div>
+
+        <!-- Custom Mode Active Indicator Banner -->
+        <div class="custom-template-banner hidden" id="customBanner">
+          <span class="banner-tag">Custom Template Loaded</span>
+          <span class="banner-name" id="customTemplateName">Document</span>
+          <button class="banner-edit-btn" id="editCustomTemplateBtn">Change</button>
+        </div>
+
+        <!-- Caps Lock Notification -->
+        <div class="caps-indicator hidden" id="capsIndicator">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 4 10 9 10 9 16 15 16 15 10 20 10 12 2"></polygon>
+            <line x1="8" y1="20" x2="16" y2="20"></line>
+          </svg>
+          <span>Caps Lock is ON</span>
+        </div>
+
+        <!-- Words Viewport -->
+        <div class="words-viewport" id="wordsViewport" tabindex="0" role="textbox" aria-label="Typing test area">
+          <div class="words-wrapper" id="wordsContainer">
+            <!-- Words and characters dynamically generated here -->
+          </div>
+          <div class="smooth-caret" id="smoothCaret"></div>
+        </div>
+
+        <!-- Hidden Input for Virtual Keyboards & Mobile -->
+        <input 
+          type="text" 
+          id="hiddenInput" 
+          class="hidden-input" 
+          autocomplete="off" 
+          autocapitalize="off" 
+          autocorrect="off" 
+          spellcheck="false" 
+          inputmode="text" 
+          aria-hidden="true"
+        />
+
+
+        <!-- Timer Paused Overlay -->
+        <div class="arena-blur-overlay pause-blur-overlay hidden" id="pauseOverlay">
+          <div class="pause-card">
+            <div class="pause-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+              </svg>
+            </div>
+            <h3 class="pause-title">Timer Paused</h3>
+            <p class="pause-desc">Take a breather. Time spent paused does not affect your speed.</p>
+            <button id="resumeTestBtn" class="primary-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span>Resume Typing</span>
+            </button>
+            <span class="pause-shortcut-hint">Or press <kbd>Alt</kbd> + <kbd>Space</kbd> / any key</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visual Cockpit: Keyboard with Hands on Left & Right Sides (Opened by Default) -->
+      <section class="visual-keyboard-card" id="visualKeyboardCard" aria-label="Interactive Touch Typing Keyboard with Hands Guide">
+        <div class="keyboard-top-controls">
+          <div class="keyboard-legend">
+            <span class="legend-item"><span class="finger-dot pinky-dot"></span> Pinky</span>
+            <span class="legend-item"><span class="finger-dot ring-dot"></span> Ring</span>
+            <span class="legend-item"><span class="finger-dot middle-dot"></span> Middle</span>
+            <span class="legend-item"><span class="finger-dot index-dot"></span> Index</span>
+            <span class="legend-item"><span class="finger-dot thumb-dot"></span> Thumb</span>
+          </div>
+          <button class="text-toggle-btn" id="toggleKeyboardBtn">Hide Guide</button>
+        </div>
+
+        <!-- 3-Column Layout: Left Hand | Keyboard Center | Right Hand -->
+        <div class="keyboard-flanked-layout" id="keyboardFlankedLayout">
+          
+          <!-- LEFT HAND (Flanking on the Left Side) -->
+          <div class="side-hand-panel left-hand-panel">
+            <div class="side-hand-header">
+              <span class="hand-side-badge">Left Hand</span>
+            </div>
+            <div class="hand-svg-container">
+              <svg class="hand-vector-svg" viewBox="0 0 150 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Palm Silhouette -->
+                <path class="hand-palm-base" d="M30 115 C30 95, 120 95, 120 120 C120 160, 105 195, 80 200 C50 195, 30 160, 30 115 Z" />
+                
+                <!-- Left Pinky -->
+                <g class="finger-group" id="finger-left-pinky" data-finger="left-pinky">
+                  <rect x="14" y="55" width="20" height="60" rx="10" class="finger-bone pinky-bone" />
+                  <circle cx="24" cy="65" r="5" class="finger-glow-tip pinky-tip" />
+                  <text x="24" y="94" class="finger-svg-text">Pinky</text>
+                </g>
+
+                <!-- Left Ring -->
+                <g class="finger-group" id="finger-left-ring" data-finger="left-ring">
+                  <rect x="38" y="28" width="22" height="75" rx="11" class="finger-bone ring-bone" />
+                  <circle cx="49" cy="40" r="5" class="finger-glow-tip ring-tip" />
+                  <text x="49" y="76" class="finger-svg-text">Ring</text>
+                </g>
+
+                <!-- Left Middle -->
+                <g class="finger-group" id="finger-left-middle" data-finger="left-middle">
+                  <rect x="64" y="16" width="22" height="85" rx="11" class="finger-bone middle-bone" />
+                  <circle cx="75" cy="28" r="5" class="finger-glow-tip middle-tip" />
+                  <text x="75" y="66" class="finger-svg-text">Mid</text>
+                </g>
+
+                <!-- Left Index -->
+                <g class="finger-group" id="finger-left-index" data-finger="left-index">
+                  <rect x="90" y="26" width="22" height="78" rx="11" class="finger-bone index-bone" />
+                  <circle cx="101" cy="38" r="5" class="finger-glow-tip index-tip" />
+                  <text x="101" y="74" class="finger-svg-text">Idx</text>
+                </g>
+
+                <!-- Left Thumb -->
+                <g class="finger-group" id="finger-left-thumb" data-finger="left-thumb" transform="rotate(30 118 115)">
+                  <rect x="110" y="80" width="22" height="60" rx="11" class="finger-bone thumb-bone" />
+                  <circle cx="121" cy="92" r="5" class="finger-glow-tip thumb-tip" />
+                  <text x="121" y="118" class="finger-svg-text">Thumb</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <!-- CENTER KEYBOARD -->
+          <div class="center-keyboard-panel">
+            <div class="keyboard-grid" id="keyboardGrid">
+              <!-- Dynamically generated keys -->
+            </div>
+          </div>
+
+          <!-- RIGHT HAND (Flanking on the Right Side) -->
+          <div class="side-hand-panel right-hand-panel">
+            <div class="side-hand-header">
+              <span class="hand-side-badge">Right Hand</span>
+            </div>
+            <div class="hand-svg-container">
+              <svg class="hand-vector-svg" viewBox="0 0 150 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Palm Silhouette -->
+                <path class="hand-palm-base" d="M30 120 C30 95, 120 95, 120 115 C120 160, 100 195, 70 200 C45 195, 30 160, 30 120 Z" />
+
+                <!-- Right Thumb -->
+                <g class="finger-group" id="finger-right-thumb" data-finger="right-thumb" transform="rotate(-30 32 115)">
+                  <rect x="18" y="80" width="22" height="60" rx="11" class="finger-bone thumb-bone" />
+                  <circle cx="29" cy="92" r="5" class="finger-glow-tip thumb-tip" />
+                  <text x="29" y="118" class="finger-svg-text">Thumb</text>
+                </g>
+
+                <!-- Right Index -->
+                <g class="finger-group" id="finger-right-index" data-finger="right-index">
+                  <rect x="38" y="26" width="22" height="78" rx="11" class="finger-bone index-bone" />
+                  <circle cx="49" cy="38" r="5" class="finger-glow-tip index-tip" />
+                  <text x="49" y="74" class="finger-svg-text">Idx</text>
+                </g>
+
+                <!-- Right Middle -->
+                <g class="finger-group" id="finger-right-middle" data-finger="right-middle">
+                  <rect x="64" y="16" width="22" height="85" rx="11" class="finger-bone middle-bone" />
+                  <circle cx="75" cy="28" r="5" class="finger-glow-tip middle-tip" />
+                  <text x="75" y="66" class="finger-svg-text">Mid</text>
+                </g>
+
+                <!-- Right Ring -->
+                <g class="finger-group" id="finger-right-ring" data-finger="right-ring">
+                  <rect x="90" y="28" width="22" height="75" rx="11" class="finger-bone ring-bone" />
+                  <circle cx="101" cy="40" r="5" class="finger-glow-tip ring-tip" />
+                  <text x="101" y="76" class="finger-svg-text">Ring</text>
+                </g>
+
+                <!-- Right Pinky -->
+                <g class="finger-group" id="finger-right-pinky" data-finger="right-pinky">
+                  <rect x="116" y="55" width="20" height="60" rx="10" class="finger-bone pinky-bone" />
+                  <circle cx="126" cy="65" r="5" class="finger-glow-tip pinky-tip" />
+                  <text x="126" y="94" class="finger-svg-text">Pinky</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Bottom Controls & Hints -->
+      <div class="bottom-controls">
+        <div class="action-btn-row">
+          <button id="restartBtn" class="restart-action-btn" title="Restart test (Tab + Enter or Esc)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+              <path d="M21 3v5h-5"></path>
+              <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+              <path d="M3 21v-5h5"></path>
+            </svg>
+            <span>Restart Test</span>
+          </button>
+
+          <button id="toggleKeyboardGlobalBtn" class="pill-btn keyboard-toggle-btn" title="Show or hide on-screen keyboard & hands guide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <line x1="6" y1="8" x2="6" y2="8"></line>
+              <line x1="10" y1="8" x2="10" y2="8"></line>
+              <line x1="14" y1="8" x2="14" y2="8"></line>
+              <line x1="18" y1="8" x2="18" y2="8"></line>
+              <line x1="6" y1="12" x2="6" y2="12"></line>
+              <line x1="10" y1="12" x2="10" y2="12"></line>
+              <line x1="14" y1="12" x2="14" y2="12"></line>
+              <line x1="18" y1="12" x2="18" y2="12"></line>
+              <line x1="7" y1="16" x2="17" y2="16"></line>
+            </svg>
+            <span id="keyboardToggleText">Hide Keyboard Guide</span>
+          </button>
+        </div>
+
+        <div class="keyboard-hints">
+          <span class="hint-item"><kbd>Tab</kbd> + <kbd>Enter</kbd> restart</span>
+          <span class="hint-dot">•</span>
+          <span class="hint-item"><kbd>Alt</kbd> + <kbd>Space</kbd> pause/resume</span>
+          <span class="hint-dot">•</span>
+          <span class="hint-item"><kbd>Alt</kbd> + <kbd>B</kbd> beginner tutor</span>
+          <span class="hint-dot">•</span>
+          <span class="hint-item"><kbd>Alt</kbd> + <kbd>K</kbd> keyboard guide</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer with Essential Links & Portfolio -->
+    <footer class="app-footer">
+      <div class="footer-nav">
+        <button class="footer-link" id="footerAboutBtn">About & Creator</button>
+        <span class="footer-dot">•</span>
+        <button class="footer-link" id="footerPrivacyBtn">Privacy Policy</button>
+        <span class="footer-dot">•</span>
+        <button class="footer-link" id="footerTermsBtn">Terms of Service</button>
+        <span class="footer-dot">•</span>
+        <button class="footer-link" id="footerTutorBtn">Beginner Typing Academy</button>
+        <span class="footer-dot">•</span>
+        <button class="footer-link" id="footerCustomBtn">Upload PDF / Custom Text</button>
+        <span class="footer-dot">•</span>
+        <!-- Portfolio Website Link -->
+        <a href="https://yourportfolio.com" target="_blank" rel="noopener noreferrer" class="footer-link portfolio-footer-link" id="footerPortfolioLink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span id="footerPortfolioText">Portfolio ↗</span>
+        </a>
+      </div>
+      <p class="footer-text">
+        <span class="footer-brand">TypeBud</span> — Practice. Improve. Type Faster. Crafted for seamless typing mastery.
+      </p>
+    </footer>
+  </div>
+
+  <!-- PDF & Custom Text Modal -->
+  <div class="modal-backdrop hidden" id="customTemplateModal" role="dialog" aria-modal="true" aria-labelledby="customModalTitle">
+    <div class="modal-card custom-modal-card">
+      <div class="modal-header-row">
+        <div class="modal-title-wrap">
+          <h2 class="modal-title" id="customModalTitle">Custom Text & PDF Template</h2>
+          <p class="modal-subtitle">Upload your PDF or enter custom material to practice typing your own documents.</p>
+        </div>
+        <button class="icon-btn close-modal-btn" id="closeCustomModalBtn" aria-label="Close Custom Template Modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- File Upload Zone -->
+      <div class="file-dropzone" id="fileDropzone">
+        <input type="file" id="templateFileInput" accept=".pdf,.txt,.md,.text" class="file-input-hidden" />
+        <div class="dropzone-content">
+          <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <div class="dropzone-text">
+            <span class="dropzone-primary">Click to upload or drag & drop a PDF / TXT file</span>
+            <span class="dropzone-secondary">Supports .pdf, .txt, .md (Client-side parsing — files never leave your device)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Preset Selector -->
+      <div class="preset-section">
+        <span class="preset-label">Or load a curated preset:</span>
+        <div class="preset-buttons">
+          <button class="preset-btn" data-preset="tech">💻 Software Engineering</button>
+          <button class="preset-btn" data-preset="stoic">🏛️ Marcus Aurelius</button>
+          <button class="preset-btn" data-preset="prose">📖 The Great Gatsby</button>
+        </div>
+      </div>
+
+      <!-- Textarea for Preview & Direct Editing -->
+      <div class="custom-text-wrap">
+        <label for="customTextarea" class="input-label">Template Content Preview:</label>
+        <textarea 
+          id="customTextarea" 
+          class="custom-textarea" 
+          rows="6" 
+          placeholder="Paste or edit your custom text here, or upload a PDF above..."
+        ></textarea>
+        <div class="template-stats-row">
+          <span id="templateWordCount">0 words</span>
+          <span id="templateCharCount">0 characters</span>
+          <span id="templateEstTime">Est. ~0 min</span>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer-flex">
+        <button id="cancelCustomBtn" class="secondary-btn">Cancel</button>
+        <button id="applyCustomBtn" class="primary-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span>Start Practice With This Template</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lesson Passed / Completion Modal -->
+  <div class="modal-backdrop hidden" id="lessonPassedModal" role="dialog" aria-modal="true" aria-labelledby="lessonPassedTitle">
+    <div class="modal-card lesson-passed-card">
+      <div class="lesson-passed-header">
+        <div class="trophy-circle">🎉</div>
+        <h2 class="modal-title" id="lessonPassedTitle">Lesson Passed!</h2>
+        <p class="modal-subtitle" id="lessonPassedSubtitle">Great finger placement and steady rhythm.</p>
+      </div>
+
+      <div class="lesson-score-row">
+        <div class="lesson-score-box">
+          <span class="score-lbl">Accuracy</span>
+          <span class="score-val" id="lessonPassedAcc">100%</span>
+        </div>
+        <div class="lesson-score-box">
+          <span class="score-lbl">Typing Speed</span>
+          <span class="score-val" id="lessonPassedWpm">24 WPM</span>
+        </div>
+      </div>
+
+      <div class="modal-footer-flex">
+        <button id="retryLessonBtn" class="secondary-btn">Repeat Lesson</button>
+        <button id="advanceLessonBtn" class="primary-btn">
+          <span>Continue to Next Lesson</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- About & Creator ("That's Me") Modal -->
+  <div class="modal-backdrop hidden" id="aboutModal" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+    <div class="modal-card about-card">
+      <div class="modal-header-row">
+        <div class="modal-title-wrap">
+          <h2 class="modal-title" id="aboutTitle">About TypeBud & Creator</h2>
+          <p class="modal-subtitle">Meet the creator and discover the philosophy behind TypeBud.</p>
+        </div>
+        <button class="icon-btn close-modal-btn" id="closeAboutBtn" aria-label="Close About Modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Creator Card ("That's Me") -->
+      <div class="creator-profile-card">
+        <div class="creator-avatar-wrap">
+          <!-- ========================================================================= -->
+          <!-- CREATOR PHOTO: Replace the placeholder data-URI below with your actual   -->
+          <!-- photo file (e.g. src="hrishabh.jpg") or an online image URL.              -->
+          <!-- ========================================================================= -->
+          <img 
+            id="creatorImage" 
+            class="creator-img-elem" 
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%230f172a'/%3E%3Cstop offset='100%25' stop-color='%231e293b'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='120' height='120' rx='60' fill='url(%23g)'/%3E%3Ccircle cx='60' cy='45' r='20' fill='%2306b6d4' opacity='0.85'/%3E%3Cpath d='M26 102c0-18 15-32 34-32s34 14 34 32' fill='%2310b981' opacity='0.85'/%3E%3C/svg%3E" 
+            alt="Hrishabh - Creator Placeholder" 
+          />
+          <span class="online-indicator" title="Creator Verified"></span>
+        </div>
+
+        <div class="creator-info">
+          <div class="creator-badge-row">
+            <h3 class="creator-name">Hrishabh</h3>
+            <span class="creator-tag">That's Me — Creator & Architect</span>
+          </div>
+          <p class="creator-bio">
+            Passionate software engineer and product creator dedicated to crafting fast, minimalist, and beautifully engineered web tools. Built TypeBud to provide the cleanest, distraction-free typing mastery experience with zero fluff.
+          </p>
+
+          <!-- ========================================================================= -->
+          <!-- CREATOR PORTFOLIO: Replace "https://yourportfolio.com" with your URL       -->
+          <!-- ========================================================================= -->
+          <div class="creator-portfolio-action-row">
+            <a href="https://yourportfolio.com" target="_blank" rel="noopener noreferrer" class="creator-portfolio-link-btn" id="creatorCardPortfolioLink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              <span>Visit My Portfolio ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mission & Core Pillars -->
+      <div class="about-pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">🎯</div>
+          <h4 class="pillar-title">Pure Mastery</h4>
+          <p class="pillar-desc">Designed with laser focus on speed (WPM), accuracy, and consistency. No ads, no popups, no clutter.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🎓</div>
+          <h4 class="pillar-title">Beginner to Pro</h4>
+          <p class="pillar-desc">Step-by-step interactive touch typing lessons with visual hands guide to build lifelong muscle memory.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🔒</div>
+          <h4 class="pillar-title">100% Private</h4>
+          <p class="pillar-desc">Zero tracking or external calls. Your uploaded PDFs and practice records never leave your browser sandbox.</p>
+        </div>
+      </div>
+
+      <div class="creator-quote">
+        "Typing is the direct highway between human imagination and the digital canvas. Train your fingers to think at the speed of thought."
+      </div>
+
+      <div class="modal-footer-right">
+        <button id="aboutDoneBtn" class="primary-btn">Back to Typing</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal-backdrop hidden" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+    <div class="modal-card legal-card">
+      <div class="modal-header-row">
+        <div class="modal-title-wrap">
+          <h2 class="modal-title" id="privacyTitle">Privacy Policy</h2>
+          <p class="modal-subtitle">Last updated: October 2026 • Effective immediately</p>
+        </div>
+        <button class="icon-btn close-modal-btn" id="closePrivacyBtn" aria-label="Close Privacy Modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="legal-content">
+        <div class="privacy-highlight-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <div>
+            <strong>100% Client-Side Privacy Guarantee:</strong>
+            <span>TypeBud is engineered to operate strictly within your local browser. We do not track, collect, transmit, or monetize your data.</span>
+          </div>
+        </div>
+
+        <h4 class="legal-heading">1. Custom PDF & Document Processing</h4>
+        <p class="legal-paragraph">
+          When you upload a PDF or text template to practice typing, all text extraction and processing takes place exclusively inside your browser's local JavaScript memory. No document content, file bytes, or text are ever transmitted to any external server or third-party service.
+        </p>
+
+        <h4 class="legal-heading">2. Local Storage Usage</h4>
+        <p class="legal-paragraph">
+          TypeBud uses your browser's standard <code>localStorage</code> solely to save your personal typing records, beginner lesson progress, avatar image, and your sound preference. This data remains on your machine and can be cleared at any time via the Personal Records interface.
+        </p>
+
+        <h4 class="legal-heading">3. No Cookies, No Telemetry, No Third-Party Trackers</h4>
+        <p class="legal-paragraph">
+          TypeBud contains zero analytics trackers (e.g., Google Analytics), zero tracking cookies, zero external advertising scripts, and zero third-party font or asset CDNs. It is fully functional offline.
+        </p>
+      </div>
+
+      <div class="modal-footer-right">
+        <button id="privacyDoneBtn" class="primary-btn">I Understand</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms of Service Modal -->
+  <div class="modal-backdrop hidden" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+    <div class="modal-card legal-card">
+      <div class="modal-header-row">
+        <div class="modal-title-wrap">
+          <h2 class="modal-title" id="termsTitle">Terms of Service</h2>
+          <p class="modal-subtitle">Simple, honest guidelines for using TypeBud</p>
+        </div>
+        <button class="icon-btn close-modal-btn" id="closeTermsBtn" aria-label="Close Terms Modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="legal-content">
+        <h4 class="legal-heading">1. Permitted Use</h4>
+        <p class="legal-paragraph">
+          TypeBud is provided free of charge for individual practice, educational use, beginner typing mastery, and professional typing speed improvement.
+        </p>
+
+        <h4 class="legal-heading">2. Document Ownership</h4>
+        <p class="legal-paragraph">
+          You retain full rights and ownership over any custom text or PDF documents you load into TypeBud.
+        </p>
+
+        <h4 class="legal-heading">3. Software Disclaimer</h4>
+        <p class="legal-paragraph">
+          TypeBud is provided "as is", without warranty of any kind, express or implied.
+        </p>
+      </div>
+
+      <div class="modal-footer-right">
+        <button id="termsDoneBtn" class="primary-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Modal -->
+  <div class="modal-backdrop hidden" id="resultsModal" role="dialog" aria-modal="true" aria-labelledby="resultsTitle">
+    <div class="modal-card results-card">
+      <div class="result-header">
+        <div class="result-badge-wrap">
+          <span class="tier-badge" id="resultTierBadge">Speed Adept</span>
+          <div class="personal-best-badge hidden" id="newPbBadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span>New Personal Best!</span>
+          </div>
+        </div>
+        <h2 class="result-headline" id="resultsTitle">Test Completed!</h2>
+        <p class="result-subtext" id="resultModeMeta">Medium • 30 Seconds</p>
+      </div>
+
+      <!-- Big Metric Highlights -->
+      <div class="results-stats-grid">
+        <div class="result-metric-card primary-metric">
+          <span class="metric-label">Words Per Minute</span>
+          <div class="metric-number-row">
+            <span class="metric-number" id="finalWpm">0</span>
+            <span class="metric-unit">WPM</span>
+          </div>
+          <span class="metric-sub" id="finalRawWpm">Raw: 0 WPM</span>
+        </div>
+
+        <div class="result-metric-card">
+          <span class="metric-label">Accuracy</span>
+          <div class="metric-number-row">
+            <span class="metric-number" id="finalAccuracy">100</span>
+            <span class="metric-unit">%</span>
+          </div>
+          <span class="metric-sub" id="finalConsistency">Consistency: 95%</span>
+        </div>
+
+        <div class="result-metric-card">
+          <span class="metric-label">Characters</span>
+          <div class="metric-number-row">
+            <span class="metric-number" id="finalTotalChars">0</span>
+          </div>
+          <div class="metric-char-breakdown">
+            <span class="breakdown-item correct" id="finalCorrectChars">0 correct</span>
+            <span class="breakdown-sep">/</span>
+            <span class="breakdown-item incorrect" id="finalIncorrectChars">0 wrong</span>
+          </div>
+        </div>
+
+        <div class="result-metric-card">
+          <span class="metric-label">Time Elapsed</span>
+          <div class="metric-number-row">
+            <span class="metric-number" id="finalTimeElapsed">30</span>
+            <span class="metric-unit">s</span>
+          </div>
+          <span class="metric-sub" id="finalKeystrokePace">0 keys/sec</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="result-actions">
+        <button id="modalRestartBtn" class="primary-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+            <path d="M21 3v5h-5"></path>
+            <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+            <path d="M3 21v-5h5"></path>
+          </svg>
+          <span>Try Again</span>
+        </button>
+
+        <button id="modalChangeDiffBtn" class="secondary-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Change Mode</span>
+        </button>
+
+        <button id="modalShareBtn" class="secondary-btn" title="Copy result to clipboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span id="shareBtnText">Copy Result</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Personal Records Modal -->
+  <div class="modal-backdrop hidden" id="recordsModal" role="dialog" aria-modal="true" aria-labelledby="recordsTitle">
+    <div class="modal-card records-card">
+      <div class="modal-header-row">
+        <div class="modal-title-wrap">
+          <h2 class="modal-title" id="recordsTitle">Personal Records</h2>
+          <p class="modal-subtitle">Your all-time typing milestones saved in your browser.</p>
+        </div>
+        <button class="icon-btn close-modal-btn" id="closeRecordsBtn" aria-label="Close Records">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Quick Summary Cards -->
+      <div class="records-summary-grid">
+        <div class="record-summary-card">
+          <span class="record-label">Highest Speed</span>
+          <div class="record-stat-value">
+            <span id="recordBestWpm">0</span> <small>WPM</small>
+          </div>
+          <span class="record-mode-tag" id="recordBestWpmMode">No records yet</span>
+        </div>
+
+        <div class="record-summary-card">
+          <span class="record-label">Best Accuracy</span>
+          <div class="record-stat-value">
+            <span id="recordBestAccuracy">0</span> <small>%</small>
+          </div>
+          <span class="record-mode-tag" id="recordBestAccMode">No records yet</span>
+        </div>
+
+        <div class="record-summary-card">
+          <span class="record-label">Tests Completed</span>
+          <div class="record-stat-value" id="recordTotalTests">0</div>
+          <span class="record-mode-tag">Sessions logged</span>
+        </div>
+      </div>
+
+      <!-- Category Records Table -->
+      <div class="records-table-container">
+        <h3 class="records-section-title">Best Per Category</h3>
+        <table class="records-table">
+          <thead>
+            <tr>
+              <th>Difficulty</th>
+              <th>Time</th>
+              <th>Best WPM</th>
+              <th>Accuracy</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="recordsTableBody">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Reset & Close Actions -->
+      <div class="records-footer">
+        <button id="clearRecordsBtn" class="danger-btn">Clear History</button>
+        <button id="recordsDoneBtn" class="secondary-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shortcuts Modal -->
+  <div class="modal-backdrop hidden" id="shortcutsModal" role="dialog" aria-modal="true" aria-labelledby="shortcutsTitle">
+    <div class="modal-card shortcuts-card">
+      <div class="modal-header-row">
+        <div class="modal-title-wrap">
+          <h2 class="modal-title" id="shortcutsTitle">Keyboard Shortcuts</h2>
+          <p class="modal-subtitle">Stay in your typing flow without lifting your hands.</p>
+        </div>
+        <button class="icon-btn close-modal-btn" id="closeShortcutsBtn" aria-label="Close Shortcuts">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="shortcuts-list">
+        <div class="shortcut-row">
+          <span class="shortcut-desc">Restart current test</span>
+          <div class="key-combo"><kbd>Tab</kbd> + <kbd>Enter</kbd></div>
+        </div>
+        <div class="shortcut-row">
+          <span class="shortcut-desc">Pause / Resume timer</span>
+          <div class="key-combo"><kbd>Alt</kbd> + <kbd>Space</kbd></div>
+        </div>
+        <div class="shortcut-row">
+          <span class="shortcut-desc">Quick test reset</span>
+          <div class="key-combo"><kbd>Esc</kbd></div>
+        </div>
+        <div class="shortcut-row">
+          <span class="shortcut-desc">Toggle Beginner Tutor</span>
+          <div class="key-combo"><kbd>Alt</kbd> + <kbd>B</kbd></div>
+        </div>
+        <div class="shortcut-row">
+          <span class="shortcut-desc">Toggle Keyboard & Hands Guide</span>
+          <div class="key-combo"><kbd>Alt</kbd> + <kbd>K</kbd></div>
+        </div>
+        <div class="shortcut-row">
+          <span class="shortcut-desc">Toggle sound effects</span>
+          <div class="key-combo"><kbd>Alt</kbd> + <kbd>M</kbd></div>
+        </div>
+        <div class="shortcut-row">
+          <span class="shortcut-desc">Open Custom / PDF modal</span>
+          <div class="key-combo"><kbd>Alt</kbd> + <kbd>P</kbd></div>
+        </div>
+      </div>
+
+      <div class="modal-footer-right">
+        <button id="shortcutsDoneBtn" class="primary-btn">Got it</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
