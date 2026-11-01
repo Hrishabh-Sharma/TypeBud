@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TypeBud — Practice. Improve. Type Faster.</title>
-  <meta name="description" content="TypeBud is a modern, sleek typing practice game and beginner typing tutor to boost your typing speed, accuracy, and consistency. Support for PDF templates, touch typing lessons, hands diagram, and timer pause.">
+  <meta name="description" content="TypeBud is a modern, sleek typing practice game and beginner typing tutor to boost your typing speed, accuracy, and consistency. Support for Text templates, touch typing lessons, hands diagram, and timer pause.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -45,8 +45,8 @@
 <button id="themeToggle" class="icon-btn" title="Switch theme" aria-label="Switch to light theme">
   <span id="themeIcon">☀️</span>
 </button>
-        <!-- Custom / PDF Template Button -->
-        <button id="pdfTemplateBtn" class="pill-btn template-action-btn" aria-label="Custom or PDF Template">
+        <!-- Custom / Text Template Button -->
+        <button id="pdfTemplateBtn" class="pill-btn template-action-btn" aria-label="Custom or Text Template">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
             <polyline points="14 2 14 8 20 8"></polyline>
@@ -54,7 +54,7 @@
             <line x1="16" y1="17" x2="8" y2="17"></line>
             <polyline points="10 9 9 9 8 9"></polyline>
           </svg>
-          <span>PDF / Custom</span>
+          <span>Text / Custom</span>
         </button>
 
         <!-- Sound Toggle -->
@@ -491,7 +491,7 @@
         <span class="footer-dot">•</span>
         <button class="footer-link" id="footerTutorBtn">Beginner Typing Academy</button>
         <span class="footer-dot">•</span>
-        <button class="footer-link" id="footerCustomBtn">Upload PDF / Custom Text</button>
+        <button class="footer-link" id="footerCustomBtn">Upload Text / Custom Text</button>
         <span class="footer-dot">•</span>
         <!-- Portfolio Website Link -->
         <a href="https://hrishabh.cc.cd" target="_blank" rel="noopener noreferrer" class="footer-link portfolio-footer-link" id="footerPortfolioLink">
@@ -514,8 +514,8 @@
     <div class="modal-card custom-modal-card">
       <div class="modal-header-row">
         <div class="modal-title-wrap">
-          <h2 class="modal-title" id="customModalTitle">Custom Text & PDF Template</h2>
-          <p class="modal-subtitle">Upload your PDF or enter custom material to practice typing your own documents.</p>
+          <h2 class="modal-title" id="customModalTitle">Custom Text & Text Template</h2>
+          <p class="modal-subtitle">Upload your Text or enter custom material to practice typing your own documents.</p>
         </div>
         <button class="icon-btn close-modal-btn" id="closeCustomModalBtn" aria-label="Close Custom Template Modal">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -527,7 +527,7 @@
 
       <!-- File Upload Zone -->
       <div class="file-dropzone" id="fileDropzone">
-        <input type="file" id="templateFileInput" accept=".pdf,.txt,.md,.text" class="file-input-hidden" />
+        <input type="file" id="templateFileInput" accept=".txt,.md,.text" class="file-input-hidden" />
         <div class="dropzone-content">
           <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -535,8 +535,8 @@
             <line x1="12" y1="3" x2="12" y2="15"></line>
           </svg>
           <div class="dropzone-text">
-            <span class="dropzone-primary">Click to upload or drag & drop a PDF / TXT file</span>
-            <span class="dropzone-secondary">Supports .pdf, .txt, .md (Client-side parsing — files never leave your device)</span>
+            <span class="dropzone-primary">Click to upload or drag & drop a Text / TXT file</span>
+            <span class="dropzone-secondary">Supports .txt, .md (Client-side parsing — files never leave your device)</span>
           </div>
         </div>
       </div>
@@ -558,7 +558,7 @@
           id="customTextarea" 
           class="custom-textarea" 
           rows="6" 
-          placeholder="Paste or edit your custom text here, or upload a PDF above..."
+          placeholder="Paste or edit your custom text here, or upload a Text above..."
         ></textarea>
         <div class="template-stats-row">
           <span id="templateWordCount">0 words</span>
@@ -684,7 +684,7 @@
         <div class="pillar-card">
           <div class="pillar-icon">🔒</div>
           <h4 class="pillar-title">100% Private</h4>
-          <p class="pillar-desc">Zero tracking or external calls. Your uploaded PDFs and practice records never leave your browser sandbox.</p>
+          <p class="pillar-desc">Zero tracking or external calls. Your uploaded TXTs and practice records never leave your browser sandbox.</p>
         </div>
       </div>
 
@@ -726,9 +726,9 @@
           </div>
         </div>
 
-        <h4 class="legal-heading">1. Custom PDF & Document Processing</h4>
+        <h4 class="legal-heading">1. Custom Text & Document Processing</h4>
         <p class="legal-paragraph">
-          When you upload a PDF or text template to practice typing, all text extraction and processing takes place exclusively inside your browser's local JavaScript memory. No document content, file bytes, or text are ever transmitted to any external server or third-party service.
+          When you upload a Text or text template to practice typing, all text extraction and processing takes place exclusively inside your browser's local JavaScript memory. No document content, file bytes, or text are ever transmitted to any external server or third-party service.
         </p>
 
         <h4 class="legal-heading">2. Local Storage Usage</h4>
@@ -772,7 +772,7 @@
 
         <h4 class="legal-heading">2. Document Ownership</h4>
         <p class="legal-paragraph">
-          You retain full rights and ownership over any custom text or PDF documents you load into TypeBud.
+          You retain full rights and ownership over any custom text or Text documents you load into TypeBud.
         </p>
 
         <h4 class="legal-heading">3. Software Disclaimer</h4>
@@ -987,7 +987,7 @@
           <div class="key-combo"><kbd>Alt</kbd> + <kbd>M</kbd></div>
         </div>
         <div class="shortcut-row">
-          <span class="shortcut-desc">Open Custom / PDF modal</span>
+          <span class="shortcut-desc">Open Custom / Text modal</span>
           <div class="key-combo"><kbd>Alt</kbd> + <kbd>P</kbd></div>
         </div>
       </div>
