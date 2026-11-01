@@ -283,7 +283,7 @@ themeToggle.addEventListener('click', () => {
     
     // Preferences
     soundEnabled: true,
-    portfolioUrl: 'https://yourportfolio.com',
+    portfolioUrl: 'https://hrishabh.cc.cd',
     
     // Cached DOM elements
     elements: {}
