@@ -6,7 +6,33 @@
 
 (function () {
   'use strict';
+// THEME TOGGLE
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
 
+function setTheme(theme) {
+  const isLight = theme === 'light';
+
+  document.body.classList.toggle('light-theme', isLight);
+
+  themeIcon.textContent = isLight ? '🌙' : '☀️';
+
+  themeToggle.setAttribute(
+    'aria-label',
+    isLight ? 'Switch to dark theme' : 'Switch to light theme'
+  );
+
+  themeToggle.title = isLight ? 'Switch to dark theme' : 'Switch to light theme';
+
+  localStorage.setItem('typebud-theme', theme);
+}
+
+setTheme(localStorage.getItem('typebud-theme') || 'dark');
+
+themeToggle.addEventListener('click', () => {
+  const isLight = document.body.classList.contains('light-theme');
+  setTheme(isLight ? 'dark' : 'light');
+});
   // ==========================================================================
   // BEGINNER TYPING CURRICULUM (10 Step-by-Step Lessons)
   // ==========================================================================
