@@ -1873,12 +1873,26 @@ themeToggle.addEventListener('click', () => {
     window.addEventListener('keydown', handleKeyDown);
 
     state.elements.hiddenInput.addEventListener('input', (e) => {
-      if (e.data && !state.isPaused) {
-        processKey(e.data);
+      // Auto-start the timer on mobile when the first character is typed
+      if (!state.hasStarted && !state.isTestActive && (e.data || e.inputType)) {
+        startTestTimer();
       }
+
+      if (!state.isPaused && state.isTestActive) {
+        // Handle standard soft keyboard character input
+        if (e.data) {
+          for (let i = 0; i < e.data.length; i++) {
+            processKey(e.data[i]);
+          }
+        } 
+        // Handle mobile backspace (delete) actions
+        else if (e.inputType === 'deleteContentBackward') {
+          processKey('Backspace');
+        }
+      }
+
       state.elements.hiddenInput.value = '';
     });
-
     state.elements.arenaCard.addEventListener('click', focusInput);
     window.addEventListener('blur', handleBlur);
 
